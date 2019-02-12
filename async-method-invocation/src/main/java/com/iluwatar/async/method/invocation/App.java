@@ -115,8 +115,13 @@ public class App {
    * @return new async callback
    */
   private static <T> AsyncCallback<T> callback(String name) {
+
+    // Что значит return из класса ?
+    // Видно что за параметры?
+
     return (value, ex) -> {
-      if (ex.isPresent()) {
+      if (ex.isPresent()) { //Зачем isPresent ?
+        //Зачем .map ? т такое длинное выражение, вполне не очевидное
         log(name + " failed: " + ex.map(Exception::getMessage).orElse(""));
       } else {
         log(name + ": " + value);
